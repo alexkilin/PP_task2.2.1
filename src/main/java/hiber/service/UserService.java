@@ -13,5 +13,6 @@ public interface UserService {
     void update(User user);
     void updateCar(Car car);
     User readUserById (Long id);
+    void printInfo(User user);
 
 }

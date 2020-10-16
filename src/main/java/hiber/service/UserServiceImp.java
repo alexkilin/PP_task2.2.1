@@ -50,9 +50,18 @@ public class UserServiceImp implements UserService {
    public void updateCar (Car car) {
       userDao.updateCar(car);
    }
+
    @Override
    public User readUserById (Long id){
     return userDao.readUserById(id);
    }
 
+   @Override
+   public void printInfo(User user) {
+      System.out.println("Id = " + user.getId());
+      System.out.println("First Name = " + user.getFirstName());
+      System.out.println("Last Name = " + user.getLastName());
+      System.out.println("Email = " + user.getEmail());
+      System.out.println("Car = " + user.getCar().getName() + " " + user.getCar().getSeries());
+   }
 }

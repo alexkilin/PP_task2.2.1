@@ -39,8 +39,7 @@ public class UserDaoImp implements UserDao {
     @Override
     @SuppressWarnings("unchecked")
     public User findUserByCarName(String name) {
-        String hql = "from Car a where a.name = :name";
-        Query query = sessionFactory.getCurrentSession().createQuery(hql);
+        Query query = sessionFactory.getCurrentSession().createQuery("from Car a where a.name = :name");
         query.setParameter("name", name);
         Car tempResult = (Car) query.uniqueResult();
         return tempResult.getUser();
@@ -49,8 +48,8 @@ public class UserDaoImp implements UserDao {
    @Override
    @SuppressWarnings("unchecked")
    public User findUserByCarNumberAndSeries(int number, int series) {
-      String hql = "from Car c where c.number = :number and c.series = :series";
-      Query query = sessionFactory.getCurrentSession().createQuery(hql);
+      Query query = sessionFactory.getCurrentSession().createQuery("from Car c where c.number = :number and " +
+              "c.series = :series");
       query.setParameter ("number",number);
       query.setParameter ("series",series);
       Car tempResult = (Car) query.uniqueResult();

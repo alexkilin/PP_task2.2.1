@@ -28,16 +28,13 @@ public class MainApp {
 
       List<User> users = userService.listUsers();
       for (User user : users) {
-         System.out.println("Id = "+user.getId());
-         System.out.println("First Name = "+user.getFirstName());
-         System.out.println("Last Name = "+user.getLastName());
-         System.out.println("Email = "+user.getEmail());
-         System.out.println("Car = " + user.getCar().getName() + " " + user.getCar().getSeries());
+         userService.printInfo(user);
          System.out.println();
       }
 
-      System.out.println("Автомобиль серия " + user2.getCar().getSeries() + " и номер " + user2.getCar().getNumber() + " имеет " +
-              (userService.findUserByCarNumberAndSeries (user2.getCar().getNumber(),user2.getCar().getSeries()).getFirstName()));
+      System.out.println("Автомобиль серия " + user2.getCar().getSeries() + " и номер " + user2.getCar().getNumber()
+              + " имеет " + (userService.findUserByCarNumberAndSeries (user2.getCar().getNumber(),
+              user2.getCar().getSeries()).getFirstName()));
 
       context.close();
    }
