@@ -36,24 +36,6 @@ public class MainApp {
          System.out.println();
       }
 
-      System.out.println("Полное редактирование информации об авто:");
-      user1.getCar().setName("BMV");
-      user1.getCar().setSeries(5);
-      userService.update(user1);
-
-      users = userService.listUsers();
-      for (User user : users) {
-         System.out.println("Id = "+user.getId());
-         System.out.println("First Name = "+user.getFirstName());
-         System.out.println("Last Name = "+user.getLastName());
-         System.out.println("Email = "+user.getEmail());
-         System.out.println("Car = " + user.getCar().getName() + " " + user.getCar().getSeries());
-         System.out.println();
-      }
-
-      User result = userService.readUserById((long)1);
-      System.out.println("Получение данных о user1: " + result.getFirstName() + " " + result.getLastName() + " " +
-              result.getCar().getName() + " " + result.getCar().getSeries());
       System.out.println("Автомобиль серия " + user2.getCar().getSeries() + " и номер " + user2.getCar().getNumber() + " имеет " +
               (userService.findUserByCarNumberAndSeries (user2.getCar().getNumber(),user2.getCar().getSeries()).getFirstName()));
 
